@@ -1,4 +1,4 @@
-# task-manager applicstion
+# task-manager application
 
 ## Description
 This is a simple task manager application built with Node.js and MySQL.
@@ -11,11 +11,9 @@ This is a simple task manager application built with Node.js and MySQL.
    cd task-manager
 
 2. Install dependencies:
-
+    ```bash
    npm install
 
 2. Running the Application
-
-   To run the application, execute:
-
+    ```bash
    npm run start
