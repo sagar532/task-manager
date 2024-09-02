@@ -1,7 +1,7 @@
 # task-manager application
 
 ## Description
-This is a simple task manager application built with Node.js and MySQL.
+This is a simple task management application built using Node.js and MySQL. The application allows users to create, update, delete, and view tasks. Additionally, admin users can view all users and their associated tasks. The application features user authentication and role-based access control to secure the endpoints.
 
 ## Installation
 
