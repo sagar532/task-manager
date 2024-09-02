@@ -6,8 +6,7 @@ const createPool = async () => {
   const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    // database: process.env.DB_NAME
+    password: process.env.DB_PASSWORD
   });
   return pool;
 }
@@ -27,7 +26,6 @@ const execute_query_params_return_query_result = async (query, params) => {
   // Get a connection from the pool
   const connection = await mainPool.getConnection();
   try {
-    // console.log(connection,"connection")
     // Begin a transaction
     await connection.beginTransaction();
 
@@ -36,9 +34,8 @@ const execute_query_params_return_query_result = async (query, params) => {
 
     // Commit the transactions
     await connection.commit();
-    return results[0];
+    return results;
   } catch (error) {
-    // console.log(error, "utils")
     // Rollback the transaction if an error occurs
     await connection.rollback();
     throw error;
@@ -56,8 +53,10 @@ const execute_query_return_query_result = async (query) => {
   try {
     // Execute the query
     const [results] = await connection.query(query);
-    return results[0];
+    return results;
   } catch (error) {
+    // Rollback the transaction if an error occurs
+    await connection.rollback();
     throw error;
   } finally {
     // Release the connection back to the pool
@@ -67,5 +66,6 @@ const execute_query_return_query_result = async (query) => {
 
 module.exports = {
     execute_query_params_return_query_result,
-    execute_query_return_query_result
+    execute_query_return_query_result,
+    getPool
   };

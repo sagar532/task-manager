@@ -1,0 +1,42 @@
+[
+    {
+        "roles": [
+            "admin"
+        ],
+        "method": {
+            "get": [
+                "/admin/users",
+                "/admin/users/:userId/tasks"
+            ],
+            "post": [
+                "/user/create",
+                "/user/login"
+            ],
+            "put": [],
+            "patch": [],
+            "delete": []
+        }
+    },
+    {
+        "roles": [
+            "user"
+        ],
+        "method": {
+            "get": [
+                "/tasks/list",
+                "/tasks/:taskId"
+            ],
+            "post": [
+                "/user/login",
+                "/tasks"
+            ],
+            "put": [
+                "/tasks/:taskId"
+            ],
+            "patch": [],
+            "delete": [
+                "/tasks/:taskId"
+            ]
+        }
+    }
+]
