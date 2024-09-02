@@ -1,3 +1,6 @@
+/**
+ * Generates a Bad Request exception response.
+ */
 const badRequestException = async (details = null, description = null) => {
     let error = {}
     error.statusCode = 400;
@@ -10,6 +13,9 @@ const badRequestException = async (details = null, description = null) => {
     return response;
 }
 
+/**
+ * Generates a Not Found (404) error response.
+ */
 const badRequest404 = async (details = null, description = null) => {
     let error = {}
     error.statusCode = 404;
@@ -21,6 +27,9 @@ const badRequest404 = async (details = null, description = null) => {
     return response;
 }
 
+/**
+ * Generates an Unauthorized (401) error response.
+ */
 const unauthorizedRequest = async (details = null) => {
     let error = {}
     error.statusCode = 401;
@@ -33,6 +42,9 @@ const unauthorizedRequest = async (details = null) => {
     return response;
 }
 
+/**
+ * Generates an Internal Server Error (500) response.
+ */
 const uncaughtException = async (details = null) => {
     let error = {}
     error.statusCode = 500;
@@ -45,7 +57,9 @@ const uncaughtException = async (details = null) => {
     return response;
 }
 
-
+/**
+ * Generates a Forbidden (403) error response.
+ */
 const forbiddenRequest = async (details = null, description = null) => {
     let error = {}
     error.statusCode = 403;
@@ -58,6 +72,9 @@ const forbiddenRequest = async (details = null, description = null) => {
     return response;
 }
 
+/**
+ * Formats the error response object.
+ */
 const errResObj = async (data) => {
     return {
         message: data.message,
@@ -69,6 +86,9 @@ const errResObj = async (data) => {
     };
 }
 
+/**
+ * Generates a success response object.
+ */
 const successResponse = async (data = {}, message = null) => {
     const stringToBool = JSON.parse(JSON.stringify(data), (key, value) => {
         if (value === "true") {
